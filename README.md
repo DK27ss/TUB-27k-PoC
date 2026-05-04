@@ -93,6 +93,8 @@ entire exploit executes in a single transaction within a constructor + flash-swa
 Attacker EOA → CREATE wrapper → CREATE exploit contract → exploit.run()
 ```
 
+<img width="1090" height="124" alt="image" src="https://github.com/user-attachments/assets/058ea28c-30f1-4eaa-8941-7c70bb1ac91b" />
+
 `run()` initiates a flash-swap of **1,000 wei WBNB** (~$0.0000000006) from the USDT/WBNB pair, the borrow amount is irrelevant, the flash-swap is used purely as an execution framework to bundle everything atomically.
 
 // 2 — Seed TUB Purchase
@@ -103,6 +105,8 @@ Inside the `pancakeCall` callback
 10 wei WBNB → TUB/WBNB pair.swap() → ~31,084,612 wei TUB
 ```
 
+<img width="1235" height="428" alt="image" src="https://github.com/user-attachments/assets/7c4f712c-62fc-474d-a9d6-ad226aeb896c" />
+
 cost: 10 wei WBNB, this buys enough TUB to seed the parent chain and mint LP
 
 // 3 — Sybil ParentChain construction
@@ -112,6 +116,8 @@ five identical "Minion" contracts are deployed via `CREATE`, then TUB is forward
 ```
 exploit → minion[0] → minion[1] → minion[2] → minion[3] → minion[4] → exploit
 ```
+
+<img width="1282" height="771" alt="image" src="https://github.com/user-attachments/assets/c8f7e8d0-4fec-4906-b127-4cc879117fcc" />
 
 each `transfer` triggers TUB parent registration
 
@@ -135,6 +141,8 @@ after this phase, when the Pledge contract walks the exploit contract parent cha
 4. pledge.pledge(1) → transfers 1 LP to pledge contract
 ```
 
+<img width="1151" height="752" alt="image" src="https://github.com/user-attachments/assets/c4861d99-e946-41f4-95bb-422b45925862" />
+
 Only **1 LP token** (worth effectively zero) is staked, this is the minimum required to pass the eligibility check in `b45c9928`.
 
 // 5 — drain
@@ -147,6 +155,8 @@ pledge.call(abi.encodeWithSelector(
     ""
 ));
 ```
+
+<img width="1367" height="711" alt="image" src="https://github.com/user-attachments/assets/85a83749-4211-4b6c-9600-b886e5c679f5" />
 
 Pledge contract executes
 
@@ -177,6 +187,8 @@ Pass 1: exploit sells 4.45e27 TUB → 44.4 BNB (93% of total profit)
 Pass 2-3: residual TUB from transfer-tax redistributions → dust
 ```
 
+<img width="1209" height="693" alt="image" src="https://github.com/user-attachments/assets/5a730c04-4f01-4d5a-9c16-dfd1c9be45e5" />
+
 Each subsequent sale gets exponentially worse returns due to the pair reserves becoming increasingly imbalanced
 
 // 7 — Repay
@@ -186,5 +198,7 @@ Each subsequent sale gets exponentially worse returns due to the pair reserves b
 2. WBNB.withdraw(45,097,403,792,450,239,246) // unwrap to BNB
 3. exploit → wrapper → attacker EOA          // forward ~45.097 BNB
 ```
+
+<img width="1165" height="432" alt="image" src="https://github.com/user-attachments/assets/035702dd-2883-4b1d-8ef3-4d54093df6ae" />
 
 ---
