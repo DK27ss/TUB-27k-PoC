@@ -1,7 +1,9 @@
 # TUB-27k-PoC
 
 **Chain:** BSC
+
 **Attack TX:** [`0xec7210249bff818f98962d7eec55030675c4cec8a0d9b3647954a633ead35e5d`](https://bscscan.com/tx/0xec7210249bff818f98962d7eec55030675c4cec8a0d9b3647954a633ead35e5d)
+
 **Loss:** ~45.097 BNB
 
 >| Contract | Address | Role |
