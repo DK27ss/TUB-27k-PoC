@@ -105,7 +105,7 @@ Inside the `pancakeCall` callback
 
 cost: 10 wei WBNB, this buys enough TUB to seed the parent chain and mint LP
 
-// 3 — Sybil Parent Chain Construction
+// 3 — Sybil ParentChain construction
 
 five identical "Minion" contracts are deployed via `CREATE`, then TUB is forwarded through a chain
 
@@ -126,7 +126,7 @@ parent[exploit]   = minion[4]    ← final transfer closes the loop
 
 after this phase, when the Pledge contract walks the exploit contract parent chain, it will traverse all 5 minions, each controlled by the attacker
 
-// 4 — Minimum Viable Pledge
+// 4 — minimum viable Pledge
 
 ```
 1. Transfer 10,000 TUB + 1 wei WBNB to TUB/WBNB pair
@@ -137,7 +137,7 @@ after this phase, when the Pledge contract walks the exploit contract parent cha
 
 Only **1 LP token** (worth effectively zero) is staked, this is the minimum required to pass the eligibility check in `b45c9928`.
 
-// 5 — The Drain
+// 5 — drain
 
 ```solidity
 pledge.call(abi.encodeWithSelector(
