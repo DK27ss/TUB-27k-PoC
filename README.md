@@ -202,3 +202,12 @@ Each subsequent sale gets exponentially worse returns due to the pair reserves b
 <img width="1165" height="432" alt="image" src="https://github.com/user-attachments/assets/035702dd-2883-4b1d-8ef3-4d54093df6ae" />
 
 ---
+
+>
+>Company : https://blockraider.xyz/
+>
+>Community : https://discord.gg/Vqqt7jyRr7
+>
+>Disclosure : https://t.me/blockraider_alerts_bot
+
+<img width="161" height="51" alt="blockraider" src="https://github.com/user-attachments/assets/dc86222a-b5fb-49e8-9a9d-350973b7521d" />
